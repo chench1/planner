@@ -4,24 +4,17 @@ import { Description, Dialog, DialogPanel, DialogTitle } from '@headlessui/react
 
 import { useState, useRef } from "react";
 
-export default function PopupCard({ open }: {open: boolean}) {
-  const dialogRef = useRef<HTMLDialogElement>(null);
-  if (open) {
-    dialogRef.current?.close();
-  } else {
-    dialogRef.current?.showModal();
-  }
+export default function PopupCard({ open, setIsOpen }: { open: boolean, setIsOpen: (open: boolean) => void}) {
+
   return (
     <div>
-      <dialog className="w-3/12 mt-12 customShadow box-border rounded-md" ref={dialogRef}>
-        <div className="flex flex-col">
-          <label className="pl-2 text-xs">
-            Edit Task
-          </label>
-          <input className='text-xs' value='hi'/>
+      <Dialog open={open} onClose={() => setIsOpen(false)}>
+        <div className='flex flex-col justify-center items-center '>
+          <DialogPanel>
+            Hi
+          </DialogPanel>
         </div>
-        
-      </dialog>
+      </Dialog>
     </div>
   )
 }

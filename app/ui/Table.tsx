@@ -6,7 +6,6 @@ import PopupCard from "./PopupCard";
 export default function Table() {
   const [isOpen, setIsOpen] = useState(true);
   const toggleModal = () => {
-    console.log('hi');
     if (isOpen) {
       setIsOpen(false);
     } else {
@@ -25,7 +24,7 @@ export default function Table() {
         <div className="flex flex-col justify-center items-start w-9/12 box-border border-2 rounded-md customShadow">
         <button className="w-full text-left px-2 py-2 text-sm hover:bg-gray-100 box-border rounded-md" onClick={() => toggleModal()}>
           Task One
-          <PopupCard open={isOpen}/>
+          <PopupCard open={isOpen} setIsOpen={setIsOpen}/>
         </button>
           bye
         </div>
