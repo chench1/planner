@@ -5,10 +5,10 @@ export default function InputField(
   {
   return (
     <>
-      <label className={labelClass + 'text-xl flex items-center justify-center'}>
+      <label className={labelClass + 'text-xl flex items-center justify-end mr-2'}>
         {labelText}
       </label>
-      <input className={inputClass + 'text-xl ml-1 mt-1 w-10/12 col-span-2 hover:bg-gray-100 rounded-md'} type='text' placeholder={placeholder}/>
+      <input className={inputClass + 'text-xl ml-1 mt-1 w-10/12 hover:bg-gray-100 rounded-md'} type='text' value={placeholder}/>
     </>
   )
 }

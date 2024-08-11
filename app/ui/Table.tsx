@@ -46,8 +46,8 @@ export default function Table() {
               Add New Task
             </button>
           </div>
-          <div className="flex flex-row ml-2 mt-2">
-            <label className="">
+          <div className="flex flex-row ml-2 mt-2 items-center">
+            <label className="h-4">
               Filter By
             </label>
           </div>
