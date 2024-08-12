@@ -28,7 +28,7 @@ export default function PopupCard({ open, setIsOpen }: { open: boolean, setIsOpe
                 <TagsGrid />
               </div>
             </div>
-            <div className='flex justify-center item-center'>
+            <div className='flex justify-center item-center mt-1'>
               <button className='w-2/12 bg-blue-500 rounded-md text-white'>
                 Submit
               </button>

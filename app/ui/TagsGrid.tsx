@@ -11,9 +11,9 @@ export default function TagsGrid() {
   return (
     <div className="flex flex-wrap gap-1">
       {tags && tags.map((tag, index) => (
-        <Tag text={tag} key={index} />
+        <Tag value={tag} key={index} />
       ))}
-      <div className="flex items-center justify-center ml-2">
+      <div className="flex items-center justify-center ml-1">
         <button 
           className=" text-white bg-gray-200 rounded-lg h-6 w-6"
           onClick={createTag}
