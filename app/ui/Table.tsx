@@ -5,11 +5,16 @@ import PopupCard from "./PopupCard";
 import SearchBar from "./SearchBar";
 import Task from "./Task";
 
+type Task = {
+  text: string;
+  toggleModal: () => void;
+  tags: string[];
+};
+
+
 export default function Table() {
   const [isOpenEdit, setIsOpenEdit] = useState(false);
   const [isOpenCreate, setIsOpenCreate] = useState(false);
-
-  const [tasks, setTasks] = useState();
 
   const toggleModalEdit = () => {
     if (isOpenEdit) {
@@ -27,8 +32,10 @@ export default function Table() {
     }
   }
 
-  const filter = (text: ChangeEvent) => {
+  const [tasks, setTasks] = useState([{text: 'Task One', toggleModal: toggleModalEdit, tags: ['Tag One']}]);
 
+  const filter = (text: ChangeEvent<HTMLInputElement>) => {
+    const filtered = tasks.map((task) => task.text).filter((s) => s.startsWith(text.target.value));
   }
 
   return (
@@ -51,14 +58,13 @@ export default function Table() {
               Filter By
             </label>
           </div>
-
           <div className="mt-2">
             <Task toggleModal={toggleModalEdit}/>
           </div>
         </div>
       </div>
-      <PopupCard open={isOpenEdit} setIsOpen={setIsOpenEdit}/>
-      <PopupCard open={isOpenCreate} setIsOpen={setIsOpenCreate} />
+      <PopupCard type='edit' open={isOpenEdit} setIsOpen={setIsOpenEdit}/>
+      <PopupCard type="add" open={isOpenCreate} setIsOpen={setIsOpenCreate} />
 
     </>
     

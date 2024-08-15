@@ -8,10 +8,21 @@ export default function TagsGrid() {
     setTags(tags.concat(['']))
   }
 
+  const updateTag = (content: string, index: number) => {
+      const newTags = tags.map((c, i) => {
+        if (i == index) {
+          return content;
+        }
+        return c;
+      });
+
+      setTags(newTags);
+  }
+
   return (
     <div className="flex flex-wrap gap-1">
       {tags && tags.map((tag, index) => (
-        <Tag value={tag} key={index} />
+        <Tag value={tag} key={index} datakey={index} setTagsCallback={updateTag}/>
       ))}
       <div className="flex items-center justify-center ml-1">
         <button 
